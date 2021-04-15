@@ -1,6 +1,12 @@
 #!/bin/sh
 
-#set -m
+#TODO
+#-->check if user is logging as root
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  
+else
 
 #MySQL Stack
 echo -n "\e[0;36mStarting MySQL Server \e[0m"
@@ -25,3 +31,5 @@ echo "\e[0m- \e[0;32mDone\e[0m"
 echo -n "\e[0;36mStarting Postman \e[0m"
 nohup /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=Postman --file-forwarding com.getpostman.Postman @@u %U @@ </dev/null &>/dev/null &
 echo "\e[0m- \e[0;32mDone\e[0m"
+
+fi
