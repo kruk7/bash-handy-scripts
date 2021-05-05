@@ -1,2 +1,1 @@
-
-#Bash Scripts Collection
+#Handy Bash Scripts Collection
